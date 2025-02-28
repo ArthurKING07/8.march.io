@@ -138,18 +138,29 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .photo-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ff69b4;
-            font-size: 1.2rem;
+       .photo-placeholder {
+    width: 100%; /* Ширина на всю доступную область */
+    max-width: 600px; /* Увеличил максимальную ширину */
+    height: auto; /* Высота будет зависеть от картинки */
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Добавил отступы */
+}
+
+.photo-placeholder img {
+    width: 100%; /* Подстраивается под рамку */
+    height: auto; /* Не будет обрезаться */
+    border-radius: 10px;
+}
+
+h2 {
+    margin-top: -10px; /* Поднимаем заголовок выше */
+}
+
         }
 
         .petal {
