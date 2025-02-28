@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С праздником красавица💓</title>
     <style>
         * {
@@ -10,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
@@ -18,7 +19,7 @@
             position: relative;
             background: linear-gradient(135deg, #ffffff, #ffcee6);
         }
-        
+
         .background-shimmer {
             position: fixed;
             top: 0;
@@ -30,7 +31,7 @@
             animation: gradient 15s ease infinite;
             z-index: -2;
         }
-        
+
         .container {
             width: 100%;
             min-height: 100vh;
@@ -40,7 +41,7 @@
             align-items: center;
             overflow: hidden;
         }
-        
+
         .content {
             display: flex;
             flex-direction: column;
@@ -49,7 +50,7 @@
             margin: 20px auto;
             position: relative;
         }
-        
+
         @media (min-width: 768px) {
             .content {
                 flex-direction: row;
@@ -57,36 +58,41 @@
                 align-items: flex-start;
             }
         }
-        
+
         .video-container {
             width: 100%;
             position: relative;
             margin-bottom: 30px;
         }
-        
+
         @media (min-width: 768px) {
             .video-container {
                 width: 48%;
                 margin-bottom: 0;
             }
-        .video-container {
-            width: 100%;
-            max-width: 700px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
         }
 
-        .video-container video {
+        .video-placeholder {
             width: 100%;
-            height: 400px;
-            background-color: rgba(255, 255, 255, 0.5);
+            padding-top: 56.25%;
+            /* 16:9 Aspect Ratio */
+            background-color: rgba(255, 255, 255, 0.3);
             border-radius: 10px;
-            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        
+        .video-placeholder::after {
+            content: "toji-video.mp4";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff69b4;
+            font-size: 1.2rem;
+        }
+
         .message {
             width: 100%;
             padding: 30px;
@@ -97,14 +103,14 @@
             backdrop-filter: blur(5px);
             margin-bottom: 30px;
         }
-        
+
         @media (min-width: 768px) {
             .message {
                 width: 48%;
                 text-align: right;
             }
         }
-        
+
         h1 {
             font-size: 2.5rem;
             color: #ff69b4;
@@ -113,7 +119,7 @@
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
             letter-spacing: 1px;
         }
-        
+
         p {
             font-size: 1.2rem;
             color: #555;
@@ -121,7 +127,7 @@
             margin-bottom: 15px;
             font-weight: 400;
         }
-        
+
         .photo-section {
             width: 100%;
             margin-top: 20px;
@@ -131,11 +137,11 @@
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .photo-placeholder {
             width: 100%;
             max-width: 500px;
-            height: auto;
+            height: 300px;
             margin: 0 auto;
             background-color: rgba(255, 255, 255, 0.5);
             border-radius: 10px;
@@ -145,6 +151,7 @@
             color: #ff69b4;
             font-size: 1.2rem;
         }
+
         .petal {
             position: absolute;
             width: 15px;
@@ -155,7 +162,7 @@
             z-index: -1;
             opacity: 0.8;
         }
-        
+
         .music-controls {
             position: fixed;
             bottom: 20px;
@@ -169,7 +176,7 @@
             border-radius: 50px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .music-controls button {
             background: none;
             border: none;
@@ -178,16 +185,16 @@
             color: #ff69b4;
             transition: all 0.3s ease;
         }
-        
+
         .music-controls button:hover {
             transform: scale(1.1);
         }
-        
+
         .music-info {
             font-size: 0.9rem;
             color: #555;
         }
-        
+
         /* Easter Egg Styles */
         .easter-egg {
             position: fixed;
@@ -203,71 +210,84 @@
             transition: all 0.5s ease;
             z-index: 10;
         }
-        
+
         .easter-egg:hover {
             opacity: 0.8 !important;
             bottom: 10px !important;
             right: 10px !important;
         }
-        
+
         /* Animations */
         @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
+
         @keyframes falling {
             0% {
                 transform: translateY(-20px) rotate(0deg);
                 opacity: 0;
             }
+
             10% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(100vh) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         @keyframes shimmer {
             0% {
                 background-position: -100% 0;
             }
+
             100% {
                 background-position: 200% 0;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="background-shimmer"></div>
     <div class="container">
         <div class="content">
-            <div class="video-container">
-                <video autoplay loop muted controls>
-                    <source src="toji-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-                </video>
-            </div>
-           
+            <div class="video-container"> <video autoplay loop muted controls>
+                    <source src="toji-video.mp4" type="video/mp4"> Your browser does not support the video tag.
+                </video> </div>
             <div class="message">
                 <h1>🌺С 8 марта🌺</h1>
-                <p>Сегодня твой день – день весны, красоты и вдохновения. 
-                    Пусть эта весна принесёт тебе только радость, яркие моменты и искренние улыбки. 
-                    Ты заслуживаешь самых тёплых слов и лучших комплиментов. 
-                    Пусть в жизни будет больше приятных сюрпризов, 
-                    поддержки и возможностей для реализации всего задуманного.</p>
+                <p>Сегодня твой день – день весны, красоты и вдохновения. Пусть эта весна принесёт тебе только радость,
+                    яркие моменты и искренние улыбки. Ты заслуживаешь самых тёплых слов и лучших комплиментов. Пусть в
+                    жизни будет больше приятных сюрпризов, поддержки и возможностей для реализации всего задуманного.</p>
                 <p>Оставайся такой же яркой, уверенной и прекрасной!💞</p>
-                <p>И кстати не забудьте прийти в кабинет G205 в 17:00🙃 <p>
+                <p>И кстати не забудьте прийти в кабинет G205 в 00:00<p>
             </div>
         </div>
         <div class="photo-section">
             <h2 style="margin-bottom: 20px; color: #ff69b4; font-weight: 400;">Your Special Moments</h2>
-            <div class="photo-placeholder">
-                <img src="/.collage.jpg" alt="Collage" style="max-width:100%; height:auto; border-radius:10px;">
-            </div>
+            <div class="photo-placeholder">Your photo here</div>
+        </div>
+    </div>
+    <div class="music-controls"> <button id="playPauseBtn">▶️</button>
+        <div class="music-info">loveli lori & ovg! - love for you</div>
+    </div> <audio id="bgMusic" autoplay loop>
+        <source src="" type="audio/mpeg">
+        <source src="music.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+    </audio>
+    <div id="toji" class="easter-egg" title="Toji Fushiguro Easter Egg"></div>
         </div>
     <div class="music-controls">
         <button id="playPauseBtn">▶️</button>
