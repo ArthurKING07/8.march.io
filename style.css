@@ -123,14 +123,7 @@ body {
     overflow: hidden;
 }
 
-.video-placeholder::after {
-    content: "toji-video.mp4";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #ff69b4;
-    font-size: 1.2rem;
+
 }
 
 .message {
