@@ -115,12 +115,22 @@ body {
 
 .video-placeholder {
     width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    max-width: 600px; /* Максимальная ширина */
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Отступ сверху и снизу */
+    padding: 0; /* Убираем padding-top */
+}
+
+.video-placeholder video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 
